@@ -11,12 +11,14 @@ on:
 
 jobs:
     on-push:
+        if: github.event_name == 'push'
         runs-on: ubuntu-latest
         steps:
             - name: Run form Push Event
-              run: echo "Push detected"
+              run: echo "Push detected ${{github.ref_name}}"
     on-pull-request:
+        if: github.event_name == 'pull_request'
         runs-on: ubuntu-latest
         steps:
             - name: Run form Pull Event
-              run: echo "Pull Request detected"
+              run: echo "Pull Request detected ${{github.head_ref}}"
