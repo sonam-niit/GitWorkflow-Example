@@ -1,0 +1,22 @@
+name: Seperate Jobs for Push and Pull
+
+on:
+    push:
+        branches:
+            - master
+            - feature
+    pull_request:
+        branches:
+            - master
+
+jobs:
+    on-push:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Run form Push Event
+              run: echo "Push detected"
+    on-pull-request:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Run form Pull Event
+              run: echo "Pull Request detected"
