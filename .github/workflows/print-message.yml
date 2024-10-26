@@ -1,0 +1,13 @@
+name: Print Message on Push
+
+on: 
+    push:
+        branches:
+            - '**' # Trigger on push to any branch
+jobs:
+    print-message:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Print a Message
+              run: echo "Push happeed to this Repo"
